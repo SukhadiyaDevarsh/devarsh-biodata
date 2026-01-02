@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Marriage Biodata - Devarsh Sukhadiya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --primary: #6c63ff;
+      --accent: #ffb347;
+      --bg: #f3f4f6;
+      --card-bg: #ffffff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-radius: 18px;
+      --shadow: 0 18px 40px rgba(15, 23, 42, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #e0f2fe, #ffe4e6);
+  color: var(--text-main);
+  padding: 24px;
+}
+
+
+.card {
+  background: linear-gradient(135deg, #e0f2fe, #ffe4e6);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #e0f2fe, #ffe4e6);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .photo-wrapper {
+      flex: 0 0 280px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo {
+      width: 260px;
+      height: 360px;
+      border-radius: 16px;
+      border: 4px solid #e5e7eb;
+      background: url("photo.jpeg") center/cover no-repeat;
+      /* Keep "photo.jpeg" in the same folder as this HTML file */
+    }
+
+    .main-info {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .name-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4f46e5;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .name {
+      font-size: 38px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .tags {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      font-size: 16px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #374151;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 24px;
+    }
+
+    .section {
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    .section-title::after {
+      content: "";
+      display: inline-block;
+      height: 1px;
+      width: 36px;
+      margin-left: 8px;
+      background: linear-gradient(to right, #6366f1, #f97316);
+      vertical-align: middle;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 20px;
+      font-size: 16px;
+    }
+
+    .detail-label {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .detail-value {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .paragraph {
+      font-size: 16px;
+      color: #374151;
+      line-height: 1.7;
+    }
+
+    .contact-card {
+      border-radius: 16px;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, #eef2ff, #fef9c3);
+      font-size: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+
+    .contact-item-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #4b5563;
+      margin-bottom: 2px;
+    }
+
+    .contact-item-value {
+      font-weight: 600;
+      color: #111827;
+    }
+
+    /* ---- Gallery styles ---- */
+    .gallery-section {
+      margin-top: 0;
+    }
+
+    .gallery-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 12px;
+    }
+
+    .gallery-item {
+      width: 100%;
+      min-height: calc(100vh - 150px);
+      border-radius: 16px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+      overflow: visible;
+    }
+
+    .gallery-page {
+      page-break-before: always;
+      break-before: page;
+      margin-top: 40px;
+      padding: 0 !important;
+    }
+
+    .gallery-page .gallery-item {
+      border-radius: 0;
+      box-shadow: none;
+      min-height: calc(100vh - 80px);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 16px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-wrapper {
+        flex-basis: 100%;
+        order: -1;
+      }
+
+      .photo {
+        width: 220px;
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <!-- Header -->
+      <div class="header">
+        <div class="main-info">
+          <div class="name">Devarsh Sukhadiya</div>
+
+          <div class="tags">
+            <div class="tag">Date of Birth: 22 September 2002</div>
+            <div class="tag">Height: 5'7"</div>
+            <div class="tag">Weight: 72 kg</div>
+            <div class="tag">Zodiac: Pisces</div>
+          </div>
+        </div>
+
+        <div class="photo-wrapper">
+          <div class="photo"></div>
+        </div>
+      </div>
+
+      <div class="section-grid">
+        <!-- Left column -->
+        <div>
+          <!-- Education / Qualification -->
+          <section class="section">
+            <h2 class="section-title">Education / Qualification</h2>
+            <div class="details-grid">
+              <div>
+                <div class="detail-label">Current Studies</div>
+                <div class="detail-value">Pursuing M.S in Information Technology</div>
+              </div>
+              <div>
+                <div class="detail-label">University (Current)</div>
+                <div class="detail-value">ASU, USA</div>
+              </div>
+              <div>
+                <div class="detail-label">Previous Degree</div>
+                <div class="detail-value">B.Tech in Information Technology</div>
+              </div>
+              <div>
+                <div class="detail-label">University (B.Tech)</div>
+                <div class="detail-value">GTU, India</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Job Details -->
+          <section class="section">
+            <h2 class="section-title">Job Details</h2>
+            <div class="details-grid">
+              <div>
+                <div class="detail-label">Designation</div>
+                <div class="detail-value">Data Science Engineer</div>
+              </div>
+              <div>
+                <div class="detail-label">Organization</div>
+                <div class="detail-value">ASU</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Family Background -->
+          <section class="section">
+            <h2 class="section-title">Family Background</h2>
+            <div class="details-grid">
+              <div>
+                <div class="detail-label">Father</div>
+                <div class="detail-value">
+                  Mukeshbhai Manjibhai Patel<br />
+                  (M.M Patel &amp; CO., &amp; HOF Nikol, Ahmedabad)
+                </div>
+              </div>
+              <div>
+                <div class="detail-label">Mother</div>
+                <div class="detail-value">
+                  Late Rekhaben Patel / Diptiben Patel<br />
+                  (Housewife)
+                </div>
+              </div>
+              <div>
+                <div class="detail-label">Sister</div>
+                <div class="detail-value">
+                  Janhavi Aakash Patel (Married)<br />
+                  Physiotherapist, Australia
+                </div>
+              </div>
+              <div>
+                <div class="detail-label">Younger Sister</div>
+                <div class="detail-value">
+                  Fenny Patel<br />
+                  B.Tech in Computer Science
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right column -->
+        <div>
+          <!-- Contact & Address -->
+          <section class="section">
+            <h2 class="section-title">Contact &amp; Address</h2>
+            <div class="details-grid">
+              <div style="grid-column: span 2;">
+                <div class="detail-label">Current Address</div>
+                <div class="detail-value">
+                  D/104 Sargam Vatika, M.G Road Nikol<br />
+                  Ahmedabad, Gujarat
+                </div>
+              </div>
+              <div>
+                <div class="detail-label">Phone (India)</div>
+                <div class="detail-value">+91 9978486633</div>
+              </div>
+              <div>
+                <div class="detail-label">Phone (USA)</div>
+                <div class="detail-value">+1 (602) 710-5238</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Native & Maternal Details -->
+          <section class="section">
+            <h2 class="section-title">Native &amp; Maternal Details</h2>
+            <div class="details-grid">
+              <div>
+                <div class="detail-label">Native Place</div>
+                <div class="detail-value">Moti Kukavav, Amreli</div>
+              </div>
+              <div>
+                <div class="detail-label">Maternal Details</div>
+                <div class="detail-value">
+                  Vasantbhai Vitthalbhai Rafaliya<br />
+                  Bhader, Amreli
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+   
+
+    <!-- Photo 2 -->
+    <div class="card gallery-page">
+      <div class="gallery-item" style="background-image: url('photo2.jpeg');"></div>
+    </div>
+
+    <!-- Photo 3 -->
+    <div class="card gallery-page">
+      <div class="gallery-item" style="background-image: url('photo3.jpeg');"></div>
+    </div>
+
+    <!-- Photo 4 -->
+    <div class="card gallery-page">
+      <div class="gallery-item" style="background-image: url('photo4.jpeg');"></div>
+    </div>
+  </div>
+</body>
+</html>
